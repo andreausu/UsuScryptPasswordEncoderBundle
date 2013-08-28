@@ -76,7 +76,7 @@ Changing any of the above parameters will result in a different key (auto updati
 
 The parameter `key_length` determines the size in bytes of the derived key; eg: a 64 bytes key will result in a 88 characters string after the automatic base64_encode.
 
-Please refer to the [original documentation](http://framework.zend.com/manual/2.2/en/modules/zend.crypt.key.derivation.html#scrypt-adapter) for dditional informnation.
+Please refer to the [original documentation](http://framework.zend.com/manual/2.2/en/modules/zend.crypt.key.derivation.html#scrypt-adapter) for additional informnation.
 
 
 License
