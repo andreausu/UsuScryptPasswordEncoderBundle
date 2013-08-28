@@ -59,7 +59,7 @@ You can change the default bundle values (shown below) by adding the following t
     usu_scrypt_password_encoder:
         cpu_cost: 2048
         memory_cost: 4
-        parellilazation_cost: 1
+        parallelization_cost: 1
         key_length: 64
 
 Usage
