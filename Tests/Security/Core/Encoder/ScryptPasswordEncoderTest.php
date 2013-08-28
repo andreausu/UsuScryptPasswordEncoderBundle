@@ -56,8 +56,6 @@ class ScryptPasswordEncoderTest extends \PHPUnit_Framework_TestCase
         $time_end = microtime(true);
         $time2 = $time_end - $time_start;
 
-        echo $time1 . ' ' . $time2;
-
         $this->assertGreaterThan($time1, $time2);
     }
 
