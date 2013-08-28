@@ -1,0 +1,29 @@
+{
+    "name": "usu/scrypt-password-encoder-bundle",
+    "type": "symfony-bundle",
+    "description": "Scrypt password encoder for Symfony2",
+    "keywords": ["symfony", "password", "security", "scrypt", "password-encoder"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrea Usuelli",
+            "email": "andreausu@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.0",
+        "symfony/security-bundle": "~2.0",
+        "zendframework/zend-crypt": "~2.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    },
+    "autoload": {
+        "psr-0": { "Usu\\ScryptPasswordEncoderBundle": "" }
+    },
+    "target-dir": "Usu/ScryptPasswordEncoderBundle",
+    "config": {
+        "bin-dir": "bin"
+    }
+}

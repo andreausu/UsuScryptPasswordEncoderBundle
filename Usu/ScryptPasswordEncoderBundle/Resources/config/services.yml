@@ -1,0 +1,8 @@
+services:
+    security.encoder.scrypt:
+        class: Usu\ScryptPasswordEncoderBundle\Security\Core\Encoder\ScryptPasswordEncoder
+        arguments:
+            - %security.encoder.scrypt.cpu_cost%
+            - %security.encoder.scrypt.memory_cost%
+            - %security.encoder.scrypt.parallelization_cost%
+            - %security.encoder.scrypt.key_length%
