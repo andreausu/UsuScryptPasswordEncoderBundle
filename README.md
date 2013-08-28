@@ -41,7 +41,7 @@ And, finally, set the encoder in `app/config/security.yml`:
     security:
         encoders:
             Symfony\Component\Security\Core\User\User:
-                id: security.encoder.blowfish
+                id: security.encoder.scrypt
 
 Or, if you are using the excellent `FOSUserBundle`:
 
