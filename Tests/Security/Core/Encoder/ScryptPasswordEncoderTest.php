@@ -59,8 +59,39 @@ class ScryptPasswordEncoderTest extends \PHPUnit_Framework_TestCase
         $this->assertGreaterThan($time1, $time2);
     }
 
+    public function testPasswordLengthSuccess()
+    {
+        $encoder = new ScryptPasswordEncoder(2048, 2, 1, 64);
+        $salt = $this->generateSalt();
+        $password = $this->randomString(4096);
+        $encodedPass = $encoder->encodePassword($password, $salt);
+
+        $this->assertTrue($encoder->isPasswordValid($encodedPass, $password, $salt));
+    }
+
+    public function testPasswordLengthFailure()
+    {
+        $encoder = new ScryptPasswordEncoder(2048, 2, 1, 64);
+        $salt = $this->generateSalt();
+        $this->setExpectedException('Symfony\Component\Security\Core\Exception\BadCredentialsException');
+        $encoder->encodePassword($this->randomString(4097), $salt);
+
+        $this->assertFalse($encoder->isPasswordValid($this->randomString(96), $this->randomString(4097), $salt));
+    }
+
     private function generateSalt()
     {
         return Rand::getBytes(64, true);
+    }
+
+    private function randomString($length = 64)
+    {
+        $string = '';
+        $keys = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
+        for($i = 0; $i < $length; $i++) {
+            $string .= $keys[array_rand($keys)];
+
+        }
+        return $string;
     }
 }
