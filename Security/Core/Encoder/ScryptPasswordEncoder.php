@@ -24,6 +24,7 @@ namespace Usu\ScryptPasswordEncoderBundle\Security\Core\Encoder;
 
 use Symfony\Component\Security\Core\Encoder\BasePasswordEncoder;
 use Zend\Crypt\Key\Derivation\Scrypt;
+use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
 /**
  * @author Andrea Usuelli <andreausu@gmail.com>
@@ -60,11 +61,17 @@ class ScryptPasswordEncoder extends BasePasswordEncoder
 
     public function encodePassword($raw, $salt)
     {
+        if ($this->isPasswordTooLong($raw)) {
+            throw new BadCredentialsException('Invalid password.');
+        }
         return base64_encode(Scrypt::calc($raw, $salt, $this->cpuCost, $this->memoryCost, $this->parallelizationCost, $this->keyLength));
     }
 
     public function isPasswordValid($encoded, $raw, $salt)
     {
+        if ($this->isPasswordTooLong($raw)) {
+            return false;
+        }
         return ($encoded == $this->encodePassword($raw, $salt));
     }
 }
