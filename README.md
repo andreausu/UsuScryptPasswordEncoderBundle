@@ -3,7 +3,7 @@ UsuScryptPasswordEncoderBundle
 
 This Bundle provides a Symfony2 password encoder service that uses [scrypt](http://en.wikipedia.org/wiki/Scrypt) for password encoding.
 
-[![Build Status](https://travis-ci.org/andreausu/UsuScryptPasswordEncoderBundle.png?branch=master)](https://travis-ci.org/andreausu/UsuScryptPasswordEncoderBundle)
+[![Build Status](https://travis-ci.org/andreausu/UsuScryptPasswordEncoderBundle.png?branch=master)](https://travis-ci.org/andreausu/UsuScryptPasswordEncoderBundle) [![Latest Stable Version](https://poser.pugx.org/usu/scrypt-password-encoder-bundle/v/stable.svg)](https://packagist.org/packages/usu/scrypt-password-encoder-bundle) [![Total Downloads](https://poser.pugx.org/usu/scrypt-password-encoder-bundle/downloads.svg)](https://packagist.org/packages/usu/scrypt-password-encoder-bundle) [![License](https://poser.pugx.org/usu/scrypt-password-encoder-bundle/license.svg)](https://packagist.org/packages/usu/scrypt-password-encoder-bundle)
 
 
 Why you should use scrypt
@@ -78,6 +78,17 @@ The parameter `key_length` determines the size in bytes of the derived key; eg: 
 
 Please refer to the [original documentation](http://framework.zend.com/manual/2.2/en/modules/zend.crypt.key.derivation.html#scrypt-adapter) for additional informnation.
 
+Testing
+-------
+
+This bundle is fully tested with PHPUnit.
+
+Go to the root folder, install the dev dependencies with composer, and then run the phpunit test suite
+
+``` bash
+$ composer --dev install
+$ ./vendor/bin/phpunit
+```
 
 License
 -------
